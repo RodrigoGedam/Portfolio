@@ -1,4 +1,4 @@
-import { Card, CardContent } from "./ui/card";
+import ProjectCard from "./ProjectCard";
 import {
 	Carousel,
 	CarouselContent,
@@ -35,19 +35,15 @@ export default function Projects() {
 							align: "start",
 							loop: true,
 						}}
-						className="w-full max-w-48 sm:max-w-xl"
+						className="w-full max-w-2xl sm:max-w-xl"
 					>
 						<CarouselContent>
 							{Array.from({ length: 5 }).map((_, index) => (
 								<CarouselItem key={index}>
 									<div className="p-1">
-										<Card>
-											<CardContent className="flex aspect-square items-center justify-center p-6">
-												<span className="text-4xl font-semibold">
-													{index + 1}
-												</span>
-											</CardContent>
-										</Card>
+										<ProjectCard
+											title={`titulo-${index + 1}`}
+										/>
 									</div>
 								</CarouselItem>
 							))}

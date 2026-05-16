@@ -21,7 +21,7 @@ export default function Navbar() {
 							to="hero"
 							spy={true}
 							smooth={true}
-							offset={-100}
+							offset={-80}
 							duration={500}
 						>
 							<TbHexagonLetterR />
@@ -54,7 +54,7 @@ export default function Navbar() {
 										to="about"
 										spy={true}
 										smooth={true}
-										offset={-100}
+										offset={-80}
 										duration={500}
 										className="block md:px-4 transition hover:text-primary dark:hover:text-primaryLight"
 									>
@@ -69,7 +69,7 @@ export default function Navbar() {
 										to="skills"
 										spy={true}
 										smooth={true}
-										offset={-80}
+										offset={-60}
 										duration={500}
 										className="block md:px-4 transition hover:text-primary dark:hover:text-primaryLight"
 									>
@@ -84,7 +84,7 @@ export default function Navbar() {
 										to="projects"
 										spy={true}
 										smooth={true}
-										offset={-80}
+										offset={-60}
 										duration={500}
 										className="block md:px-4 transition hover:text-primary dark:hover:text-primaryLight"
 									>
@@ -99,7 +99,6 @@ export default function Navbar() {
 										to="contact"
 										spy={true}
 										smooth={true}
-										offset={-100}
 										duration={500}
 										className="block md:px-4 transition hover:text-primary dark:hover:text-primaryLight"
 									>
