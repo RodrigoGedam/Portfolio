@@ -1,7 +1,36 @@
 export default function Hero() {
 	return (
-		<div>
-			<h1>Hero</h1>
-		</div>
+		<section
+			id="hero"
+			className="rounded-tr-[150px] bg-black-base text-white-base"
+		>
+			<div className="h-8" />
+			<div className="container mx-auto mx-w-4xl p-2 py-12 flex flex-col md:flex-row">
+				<div className="basis-1/2">
+					<h1 className="mb-6 text-center md:text-left">
+						<span className="font-handwriting block text-3xl text-center md:text-left">
+							Olá, me chamo
+						</span>
+						<span className="font-headline text-5xl font-semibold">
+							Rodrigo{" "}
+						</span>
+						<span className="font-headline text-5xl font-light text-red-base">
+							Gedam
+						</span>
+					</h1>
+					<h2 className="font-semibold flex items-center gap-2 justify-center md:justify-start">
+						<div className="h-1 w-12 rounded-full bg-red-700" />
+						Desenvolvedor React.Js Front-End
+					</h2>
+					<p className="text-gray-400 my-6 text-center md:text-left">
+						Um aspirante desenvolvedor Front-End apaixonado por
+						criar experiências interativas.
+					</p>
+
+					<p>CV</p>
+				</div>
+				<div className="basis-1/2 overflow-hidden"></div>
+			</div>
+		</section>
 	);
 }

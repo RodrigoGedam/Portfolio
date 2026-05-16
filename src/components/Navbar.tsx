@@ -12,7 +12,7 @@ export default function Navbar() {
 	};
 
 	return (
-		<nav className="fixed text-2xl z-50 w-full bg-black-base">
+		<nav className="fixed text-2xl z-50 w-full bg-black-base/90">
 			<div className="xl:container m-auto px-6 md:px-12 lg:px-6">
 				<div className="flex flex-wrap items-center justify-between gap-6 md:py-2 md:gap-0 lg:py-3">
 					<div className="w-full items-center flex justify-between lg:w-auto">
