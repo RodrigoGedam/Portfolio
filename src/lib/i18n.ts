@@ -12,11 +12,17 @@ i18n.use(initReactI18next).init({
 			translation: en,
 		},
 	},
-	lng: "pt",
+	lng: localStorage.getItem("portfolio-language") ?? "pt",
 	fallbackLng: "en",
+	load: "languageOnly",
 	interpolation: {
 		escapeValue: false,
 	},
+});
+
+i18n.on("languageChanged", (language) => {
+	document.documentElement.lang = language === "pt" ? "pt-BR" : "en";
+	localStorage.setItem("portfolio-language", language);
 });
 
 export default i18n;

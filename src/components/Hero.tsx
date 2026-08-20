@@ -1,36 +1,4 @@
-export default function Hero() {
-	return (
-		<section
-			id="hero"
-			className="rounded-tr-[150px] bg-black-base text-white-base"
-		>
-			<div className="h-8" />
-			<div className="container mx-auto mx-w-4xl p-2 py-12 flex flex-col md:flex-row">
-				<div className="basis-1/2">
-					<h1 className="mb-6 text-center md:text-left">
-						<span className="font-handwriting block text-3xl text-center md:text-left">
-							Olá, me chamo
-						</span>
-						<span className="font-headline text-5xl font-semibold">
-							Rodrigo{" "}
-						</span>
-						<span className="font-headline text-5xl font-light text-red-base">
-							Gedam
-						</span>
-					</h1>
-					<h2 className="font-semibold flex items-center gap-2 justify-center md:justify-start">
-						<div className="h-1 w-12 rounded-full bg-red-700" />
-						Desenvolvedor React.Js Front-End
-					</h2>
-					<p className="text-gray-400 my-6 text-center md:text-left">
-						Um aspirante desenvolvedor Front-End apaixonado por
-						criar experiências interativas.
-					</p>
-
-					<p>CV</p>
-				</div>
-				<div className="basis-1/2 overflow-hidden"></div>
-			</div>
-		</section>
-	);
-}
+import { ArrowDown, Download } from "lucide-react";
+import { Link } from "react-scroll";
+import { useTranslation } from "react-i18next";
+export default function Hero() { const { t } = useTranslation(); return <section id="hero" className="relative overflow-hidden bg-black-base pt-16 text-white-base"><div className="mx-auto grid min-h-[calc(100svh-4rem)] max-w-6xl content-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_auto]"><div className="max-w-3xl"><p className="mb-5 text-sm font-semibold tracking-[0.22em] text-red-base uppercase">{t("hero.eyebrow")}</p><h1 className="text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">{t("hero.titleStart")} <span className="text-red-base">{t("hero.name")}</span></h1><p className="mt-7 max-w-2xl text-base leading-8 text-white-base/70 sm:text-lg">{t("hero.description")}</p><div className="mt-9 flex flex-wrap gap-3"><a href="https://drive.google.com/file/d/1yG-BJ13JrgK4feV8aXhuR78ewRACwj3H/view?usp=drive_link" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-red-base px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-base/85"><Download size={18} /> {t("hero.resume")}</a><Link to="contact" smooth offset={-64} duration={500} className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold transition hover:border-white hover:bg-white/10">{t("hero.contact")} <ArrowDown size={18} /></Link></div></div><div className="hidden h-48 w-48 self-end rounded-full border border-red-base/40 bg-[radial-gradient(circle_at_30%_30%,#f65151,transparent_32%),radial-gradient(circle_at_70%_70%,#503a3a,transparent_40%)] lg:block" aria-hidden="true" /></div></section>; }
