@@ -42,17 +42,24 @@ export default function Contact() {
 					<div className={cardClass}>
 						<Mail className="h-5 w-5 text-red-strong" aria-hidden="true" />
 						<p className="mt-5 text-sm font-semibold text-black-base">{t("contact.emailLabel")}</p>
-						<a href={`mailto:${profile.email}`} className={linkClass}>
-							{profile.email}
-						</a>
-						<button
-							type="button"
-							onClick={copyEmail}
-							className="mt-auto inline-flex w-fit items-center gap-2 rounded-lg bg-red-strong px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-strong/90"
-						>
-							{copyState === "copied" ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
-							{t("contact.copy")}
-						</button>
+						<div className="mt-1 flex items-center justify-between gap-2">
+							<a href={`mailto:${profile.email}`} className={linkClass.replace("mt-1 ", "")}>
+								{profile.email}
+							</a>
+							<button
+								type="button"
+								onClick={copyEmail}
+								aria-label={t("contact.copy")}
+								title={t("contact.copy")}
+								className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-brown-base transition hover:bg-red-strong/10 hover:text-red-strong"
+							>
+								{copyState === "copied" ? (
+									<Check size={16} className="text-red-strong" aria-hidden="true" />
+								) : (
+									<Copy size={16} aria-hidden="true" />
+								)}
+							</button>
+						</div>
 						<p role="status" className="mt-2 min-h-5 text-xs text-brown-base">
 							{copyState === "copied" && t("contact.copied")}
 							{copyState === "failed" && t("contact.copyFailed")}
