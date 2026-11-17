@@ -35,7 +35,7 @@
 		"backend": "Back-end & dados",
 		"practices": "Qualidade & entrega",
 		"items": {
-			"react": "React · Next.js",
+			"react": "React",
 			"typescript": "TypeScript · JavaScript",
 			"styles": "Tailwind CSS · HTML · CSS",
 			"ui": "shadcn/ui · Design de interface",
