@@ -1,4 +1,41 @@
 import { Braces, Database, ShieldCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
-const groups = [{ title: "frontend", icon: Braces, items: ["react", "typescript", "styles", "ui"] }, { title: "backend", icon: Database, items: ["node", "api", "database", "storage"] }, { title: "practices", icon: ShieldCheck, items: ["git", "tests", "docker", "quality"] }];
-export default function Skills() { const { t } = useTranslation(); return <section id="skills" className="bg-[#f2e8e8] px-5 py-20 sm:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-semibold tracking-[.2em] text-red-base uppercase">{t("skills.eyebrow")}</p><h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-black-base sm:text-4xl">{t("skills.title")}</h2><p className="mt-4 max-w-2xl leading-7 text-brown-base">{t("skills.description")}</p><div className="mt-10 grid gap-5 lg:grid-cols-3">{groups.map(({ title, icon: Icon, items }) => <article key={title} className="rounded-2xl border border-black-base/10 bg-white-base p-6"><Icon className="text-red-base" aria-hidden="true" /><h3 className="mt-4 text-lg font-semibold text-black-base">{t(`skills.${title}`)}</h3><ul className="mt-5 space-y-3">{items.map(item => <li key={item} className="border-l-2 border-red-base/35 pl-3 text-sm text-brown-base">{t(`skills.items.${item}`)}</li>)}</ul></article>)}</div></div></section>; }
+
+import { SectionHeading } from "./ui/section-heading";
+
+const groups = [
+	{ title: "frontend", icon: Braces, items: ["react", "typescript", "styles", "ui"] },
+	{ title: "backend", icon: Database, items: ["node", "api", "database", "storage"] },
+	{ title: "practices", icon: ShieldCheck, items: ["git", "tests", "docker", "quality"] },
+];
+
+export default function Skills() {
+	const { t } = useTranslation();
+	return (
+		<section id="skills" aria-labelledby="skills-title" className="bg-white-base px-5 py-20 sm:px-8">
+			<div className="mx-auto max-w-6xl">
+				<SectionHeading
+					id="skills-title"
+					eyebrow={t("skills.eyebrow")}
+					title={t("skills.title")}
+					description={t("skills.description")}
+				/>
+				<div className="mt-10 grid gap-5 md:grid-cols-3">
+					{groups.map(({ title, icon: Icon, items }) => (
+						<article key={title} className="rounded-2xl border border-black-base/10 bg-surface-blush/60 p-6">
+							<Icon className="text-red-strong" aria-hidden="true" />
+							<h3 className="mt-4 text-lg font-semibold text-black-base">{t(`skills.${title}`)}</h3>
+							<ul className="mt-5 space-y-3">
+								{items.map((item) => (
+									<li key={item} className="border-l-2 border-red-strong/35 pl-3 text-sm text-brown-base">
+										{t(`skills.items.${item}`)}
+									</li>
+								))}
+							</ul>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+	);
+}

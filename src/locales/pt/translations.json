@@ -1,8 +1,127 @@
 {
-  "nav":{"about":"Sobre","skills":"Habilidades","projects":"Projetos","contact":"Contato","open":"Abrir menu","close":"Fechar menu","home":"Voltar ao início","language":"Mudar idioma"},
-  "hero":{"eyebrow":"Disponível para oportunidades · Front-end & Full-stack Júnior","titleStart":"Olá, eu sou","name":"Rodrigo Gedam.","description":"Desenvolvedor Front-end com React e TypeScript, com experiência prática em APIs, bancos de dados e produtos full-stack.","resume":"Ver currículo","contact":"Vamos conversar"},
-  "about":{"eyebrow":"Sobre mim","title":"Tecnologia com propósito e atenção aos detalhes.","description":"Sou desenvolvedor Front-end com formação em Análise e Desenvolvimento de Sistemas e pós-graduação em Desenvolvimento Full-Stack. Trabalho principalmente com React, TypeScript e o ecossistema JavaScript, sempre buscando unir clareza visual, acessibilidade e uma base técnica sólida.","availability":"Aberto a oportunidades","location":"São Paulo, SP","github":"GitHub","linkedin":"LinkedIn"},
-  "skills":{"eyebrow":"Competências","title":"Ferramentas que uso para transformar ideias em produtos.","description":"Um conjunto focado em desenvolvimento web moderno, da interface à API e à qualidade de entrega.","frontend":"Front-end","backend":"Back-end & dados","practices":"Qualidade & entrega","items":{"react":"React · Next.js","typescript":"TypeScript · JavaScript","styles":"Tailwind CSS · HTML · CSS","ui":"shadcn/ui · Design de interface","node":"Node.js · Fastify","api":"REST · GraphQL · Swagger","database":"PostgreSQL · Prisma · Drizzle","storage":"Cloudflare R2 · AWS S3","git":"Git · GitHub","tests":"Vitest · Testes automatizados","docker":"Docker · CI/CD","quality":"Biome · Boas práticas"}},
-  "projects":{"eyebrow":"Portfólio","title":"Projetos selecionados","description":"Cases autorais que demonstram minha atuação em produtos web, APIs e arquitetura full-stack.","previous":"Projeto anterior","next":"Próximo projeto","repository":"Ver repositório","tech":"Tecnologias","caseLabel":"O que desenvolvi","items":{"financy":{"title":"Financy","type":"Gestão financeira · Full-stack","description":"Aplicação de controle financeiro com autenticação, categorias, transações, filtros e dashboard personalizado.","highlights":["Autenticação segura com JWT e bcrypt","API GraphQL com Prisma","Interface React responsiva com shadcn/ui"]},"brevly":{"title":"Brevly","type":"Encurtador de URLs · Full-stack","description":"Plataforma para criar, gerenciar e redirecionar links encurtados, com contagem de acessos e exportação de dados.","highlights":["Relatórios CSV enviados ao Cloudflare R2","API Fastify documentada com Swagger","PostgreSQL, Drizzle ORM e testes com Vitest"]},"prancheta":{"title":"Prancheta Tática","type":"Futebol · Full-stack","description":"Prancheta de futebol para montar e explicar jogadas com times, formações e marcações no campo.","highlights":["Times da Série A 2026 disponíveis sem cadastro","Jogadores arrastáveis, desenhos e histórico de ações","Times privados e importação de elencos por CSV"]},"widget":{"title":"Widget Server","type":"API de uploads · Back-end","description":"Serviço para upload, consulta paginada e exportação de imagens, projetado com validação e documentação de API.","highlights":["Upload multipart com limite e validação","Armazenamento compatível com S3","Swagger, Docker, GitHub Actions e testes automatizados"]}}},
-  "contact":{"eyebrow":"Contato","title":"Vamos construir algo relevante?","description":"Estou disponível para conversar sobre oportunidades, produtos web e colaborações.","emailLabel":"E-mail","locationLabel":"Localização","location":"São Paulo, SP","linkedinLabel":"LinkedIn","linkedin":"Conecte-se comigo"}
+	"nav": {
+		"about": "Sobre",
+		"skills": "Habilidades",
+		"projects": "Projetos",
+		"contact": "Contato",
+		"open": "Abrir menu",
+		"close": "Fechar menu",
+		"home": "Voltar ao início",
+		"skip": "Pular para o conteúdo",
+		"label": "Navegação principal"
+	},
+	"hero": {
+		"eyebrow": "Disponível para oportunidades · Front-end & Full-stack Júnior",
+		"titleStart": "Olá, eu sou",
+		"name": "Rodrigo Gedam",
+		"description": "Desenvolvedor Front-end com React e TypeScript, com experiência prática em APIs, bancos de dados e produtos full-stack.",
+		"resume": "Ver currículo",
+		"projects": "Ver projetos"
+	},
+	"about": {
+		"eyebrow": "Sobre mim",
+		"title": "Tecnologia com propósito e atenção aos detalhes.",
+		"description": "Sou desenvolvedor Front-end com formação em Análise e Desenvolvimento de Sistemas e pós-graduação em Desenvolvimento Full-Stack. Trabalho principalmente com React, TypeScript e o ecossistema JavaScript, sempre buscando unir clareza visual, acessibilidade e uma base técnica sólida.",
+		"availability": "Aberto a oportunidades",
+		"location": "São Paulo, SP",
+		"github": "GitHub",
+		"linkedin": "LinkedIn"
+	},
+	"skills": {
+		"eyebrow": "Competências",
+		"title": "Ferramentas que uso para transformar ideias em produtos.",
+		"description": "Um conjunto focado em desenvolvimento web moderno, da interface à API e à qualidade de entrega.",
+		"frontend": "Front-end",
+		"backend": "Back-end & dados",
+		"practices": "Qualidade & entrega",
+		"items": {
+			"react": "React",
+			"typescript": "TypeScript · JavaScript",
+			"styles": "Tailwind CSS · HTML · CSS",
+			"ui": "shadcn/ui · Design de interface",
+			"node": "Node.js · Fastify",
+			"api": "REST · GraphQL · Swagger",
+			"database": "PostgreSQL · Prisma · Drizzle",
+			"storage": "Cloudflare R2 · AWS S3",
+			"git": "Git · GitHub",
+			"tests": "Vitest · Testes automatizados",
+			"docker": "Docker · CI/CD",
+			"quality": "Biome · Boas práticas"
+		}
+	},
+	"projects": {
+		"eyebrow": "Portfólio",
+		"title": "Projetos selecionados",
+		"description": "Cases autorais que demonstram minha atuação em produtos web, APIs e arquitetura full-stack.",
+		"repository": "Ver repositório",
+		"tech": "Tecnologias",
+		"items": {
+			"financy": {
+				"title": "Financy",
+				"type": "Gestão financeira · Full-stack",
+				"description": "Aplicação de controle financeiro com autenticação, categorias, transações, filtros e dashboard personalizado.",
+				"highlights": [
+					"Autenticação segura com JWT e bcrypt",
+					"API GraphQL com Prisma",
+					"Interface React responsiva com shadcn/ui"
+				]
+			},
+			"brevly": {
+				"title": "Brevly",
+				"type": "Encurtador de URLs · Full-stack",
+				"description": "Plataforma para criar, gerenciar e redirecionar links encurtados, com contagem de acessos e exportação de dados.",
+				"highlights": [
+					"Relatórios CSV enviados ao Cloudflare R2",
+					"API Fastify documentada com Swagger",
+					"PostgreSQL, Drizzle ORM e testes com Vitest"
+				]
+			},
+			"prancheta": {
+				"title": "Prancheta Tática",
+				"type": "Futebol · Full-stack",
+				"description": "Prancheta de futebol para montar e explicar jogadas com times, formações e marcações no campo.",
+				"highlights": [
+					"Times da Série A 2026 disponíveis sem cadastro",
+					"Jogadores arrastáveis, desenhos e histórico de ações",
+					"Times privados e importação de elencos por CSV"
+				]
+			},
+			"widget": {
+				"title": "Widget Server",
+				"type": "API de uploads · Back-end",
+				"description": "Serviço para upload, consulta paginada e exportação de imagens, projetado com validação e documentação de API.",
+				"highlights": [
+					"Upload multipart com limite e validação",
+					"Armazenamento compatível com S3",
+					"Swagger, Docker, GitHub Actions e testes automatizados"
+				]
+			}
+		},
+		"demo": "Ver demo",
+		"screenshot": "Captura de tela do projeto {{title}}"
+	},
+	"contact": {
+		"eyebrow": "Contato",
+		"title": "Vamos construir algo relevante?",
+		"description": "Estou disponível para conversar sobre oportunidades, produtos web e colaborações.",
+		"emailLabel": "E-mail",
+		"linkedinLabel": "LinkedIn",
+		"linkedin": "Conecte-se comigo",
+		"copy": "Copiar e-mail",
+		"copied": "E-mail copiado para a área de transferência.",
+		"copyFailed": "Não foi possível copiar. Selecione o endereço acima.",
+		"githubLabel": "GitHub",
+		"github": "Veja meu código"
+	},
+	"common": {
+		"newTab": "(abre em nova aba)"
+	},
+	"footer": {
+		"built": "Feito com React, TypeScript e Tailwind CSS.",
+		"top": "Voltar ao topo"
+	},
+	"meta": {
+		"title": "Rodrigo Gedam — Desenvolvedor Front-end & Full-stack",
+		"description": "Portfólio de Rodrigo Gedam, desenvolvedor Front-end e Full-stack júnior com React, TypeScript, APIs e bancos de dados."
+	}
 }

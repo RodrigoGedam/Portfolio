@@ -1,4 +1,42 @@
-import { ArrowDown, Download } from "lucide-react";
-
+import { ArrowDown, FileText } from "lucide-react";
 import { useTranslation } from "react-i18next";
-export default function Hero() { const { t } = useTranslation(); return <section id="hero" className="relative overflow-hidden bg-black-base pt-16 text-white-base"><div className="mx-auto grid min-h-[calc(100svh-4rem)] max-w-6xl content-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_auto]"><div className="max-w-3xl"><p className="mb-5 text-sm font-semibold tracking-[0.22em] text-red-base uppercase">{t("hero.eyebrow")}</p><h1 className="text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">{t("hero.titleStart")} <span className="text-red-base">{t("hero.name")}</span></h1><p className="mt-7 max-w-2xl text-base leading-8 text-white-base/70 sm:text-lg">{t("hero.description")}</p><div className="mt-9 flex flex-wrap gap-3"><a href="https://drive.google.com/file/d/1yG-BJ13JrgK4feV8aXhuR78ewRACwj3H/view?usp=drive_link" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-red-base px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-base/85"><Download size={18} /> {t("hero.resume")}</a><a href="#contact" className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold transition hover:border-white hover:bg-white/10">{t("hero.contact")} <ArrowDown size={18} /></a></div></div><div className="hidden h-48 w-48 self-end rounded-full border border-red-base/40 bg-[radial-gradient(circle_at_30%_30%,#f65151,transparent_32%),radial-gradient(circle_at_70%_70%,#503a3a,transparent_40%)] lg:block" aria-hidden="true" /></div></section>; }
+
+import { profile } from "@/lib/profile";
+
+export default function Hero() {
+	const { t } = useTranslation();
+	return (
+		<section id="hero" aria-labelledby="hero-title" className="surface-dark relative overflow-hidden bg-black-base pt-16 text-white-base">
+			<div
+				aria-hidden="true"
+				className="pointer-events-none absolute -top-32 -right-40 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(246,81,81,.28),transparent_65%)] blur-2xl sm:-right-24"
+			/>
+			<div className="relative mx-auto grid min-h-[calc(100svh-4rem)] max-w-6xl content-center px-5 py-20 sm:px-8">
+				<div className="max-w-3xl">
+					<p className="mb-5 text-sm font-semibold tracking-[0.22em] text-red-base uppercase">{t("hero.eyebrow")}</p>
+					<h1 id="hero-title" tabIndex={-1} className="text-5xl outline-none font-semibold tracking-tight sm:text-6xl lg:text-7xl">
+						{t("hero.titleStart")} <span className="text-red-base">{t("hero.name")}</span>.
+					</h1>
+					<p className="mt-7 max-w-2xl text-base leading-8 text-white-base/75 sm:text-lg">{t("hero.description")}</p>
+					<div className="mt-9 flex flex-wrap gap-3">
+						<a
+							href="#projects"
+							className="inline-flex items-center gap-2 rounded-lg bg-red-strong px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-strong/90"
+						>
+							{t("hero.projects")} <ArrowDown size={18} aria-hidden="true" />
+						</a>
+						<a
+							href={profile.resume}
+							target="_blank"
+							rel="noreferrer"
+							className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold transition hover:border-white hover:bg-white/10"
+						>
+							<FileText size={18} aria-hidden="true" /> {t("hero.resume")}
+							<span className="sr-only"> {t("common.newTab")}</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
+}
