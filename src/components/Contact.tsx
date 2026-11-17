@@ -1,4 +1,81 @@
-import { Mail, MapPin } from "lucide-react";
-import { FaLinkedin } from "react-icons/fa";
+import { Check, Copy, Mail } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-export default function Contact() { const { t } = useTranslation(); const contacts = [{ label: t("contact.emailLabel"), value: "rodrigo.gedam@gmail.com", href: "mailto:rodrigo.gedam@gmail.com", icon: Mail }, { label: t("contact.locationLabel"), value: t("contact.location"), icon: MapPin }, { label: t("contact.linkedinLabel"), value: t("contact.linkedin"), href: "https://www.linkedin.com/in/rodrigogedam/", icon: FaLinkedin }]; return <section id="contact" className="bg-[#f2e8e8] px-5 py-20 sm:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-semibold tracking-[.2em] text-red-base uppercase">{t("contact.eyebrow")}</p><h2 className="mt-3 text-3xl font-semibold tracking-tight text-black-base sm:text-4xl">{t("contact.title")}</h2><p className="mt-4 max-w-xl leading-7 text-brown-base">{t("contact.description")}</p><div className="mt-9 grid gap-4 md:grid-cols-3">{contacts.map(({ label, value, href, icon: Icon }) => <div key={label} className="flex min-h-44 flex-col rounded-2xl border border-black-base/10 bg-white-base p-5"><div className="flex h-6 w-6 items-center justify-center text-red-base"><Icon className="h-5 w-5" aria-hidden="true" /></div><p className="mt-5 text-sm font-semibold text-black-base">{label}</p>{href ? <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="mt-1 block text-sm text-brown-base hover:text-red-base hover:underline">{value}</a> : <p className="mt-1 text-sm text-brown-base">{value}</p>}</div>)}</div></div></section>; }
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+
+import { profile } from "@/lib/profile";
+import { SectionHeading } from "./ui/section-heading";
+
+const cardClass = "flex min-h-44 flex-col rounded-2xl border border-black-base/10 bg-white-base p-5";
+const linkClass = "mt-1 block text-sm break-all text-brown-base underline-offset-4 hover:text-red-strong hover:underline";
+
+type CopyState = "idle" | "copied" | "failed";
+
+export default function Contact() {
+	const { t } = useTranslation();
+	const [copyState, setCopyState] = useState<CopyState>("idle");
+	const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+	useEffect(() => () => clearTimeout(timer.current), []);
+
+	const copyEmail = async () => {
+		try {
+			await navigator.clipboard.writeText(profile.email);
+			setCopyState("copied");
+		} catch {
+			setCopyState("failed");
+		}
+		clearTimeout(timer.current);
+		timer.current = setTimeout(() => setCopyState("idle"), 3000);
+	};
+
+	return (
+		<section id="contact" aria-labelledby="contact-title" className="bg-surface-blush px-5 py-20 sm:px-8">
+			<div className="mx-auto max-w-6xl">
+				<SectionHeading
+					id="contact-title"
+					eyebrow={t("contact.eyebrow")}
+					title={t("contact.title")}
+					description={t("contact.description")}
+				/>
+				<div className="mt-9 grid gap-4 md:grid-cols-3">
+					<div className={cardClass}>
+						<Mail className="h-5 w-5 text-red-strong" aria-hidden="true" />
+						<p className="mt-5 text-sm font-semibold text-black-base">{t("contact.emailLabel")}</p>
+						<a href={`mailto:${profile.email}`} className={linkClass}>
+							{profile.email}
+						</a>
+						<button
+							type="button"
+							onClick={copyEmail}
+							className="mt-auto inline-flex w-fit items-center gap-2 rounded-lg bg-red-strong px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-strong/90"
+						>
+							{copyState === "copied" ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+							{t("contact.copy")}
+						</button>
+						<p role="status" className="mt-2 min-h-5 text-xs text-brown-base">
+							{copyState === "copied" && t("contact.copied")}
+							{copyState === "failed" && t("contact.copyFailed")}
+						</p>
+					</div>
+					<div className={cardClass}>
+						<FaLinkedin className="h-5 w-5 text-red-strong" aria-hidden="true" />
+						<p className="mt-5 text-sm font-semibold text-black-base">{t("contact.linkedinLabel")}</p>
+						<a href={profile.linkedin} target="_blank" rel="noreferrer" className={linkClass}>
+							{t("contact.linkedin")}
+							<span className="sr-only"> {t("common.newTab")}</span>
+						</a>
+					</div>
+					<div className={cardClass}>
+						<FaGithub className="h-5 w-5 text-red-strong" aria-hidden="true" />
+						<p className="mt-5 text-sm font-semibold text-black-base">{t("contact.githubLabel")}</p>
+						<a href={profile.github} target="_blank" rel="noreferrer" className={linkClass}>
+							{t("contact.github")}
+							<span className="sr-only"> {t("common.newTab")}</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
+}
